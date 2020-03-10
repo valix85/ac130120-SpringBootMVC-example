@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="it" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <div th:replace="parts/header :: headmeta" />
+    <title>Hello World</title>
+    <div th:replace="parts/header :: headcss" />
+    <div th:replace="parts/header :: headjs" />
+</head>
+<body>
+<div th:replace="parts/navbar :: menu1" />
+
+<div class="container page">
+<p class="importante">Ciao che bella giornata è oggi</p>
+</div>
+
+
+<div th:replace="parts/footer :: footerhtml" />
+<div class="other">
+    <div th:replace="parts/footer :: footercss" />
+    <div th:replace="parts/footer :: footerjs" />
+</div>
+</body>
+</html>

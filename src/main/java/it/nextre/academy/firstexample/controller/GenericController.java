@@ -37,7 +37,8 @@ public class GenericController {
 
         model.addAttribute("nickname","pippo");
 
-        return "hello.html";
+        //return "hello.html";
+        return "index.html";
     }
 
     @GetMapping("contatti")

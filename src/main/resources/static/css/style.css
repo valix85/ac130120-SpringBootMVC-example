@@ -1,0 +1,50 @@
+html, body {
+    background: #FFF;
+    min-height: 100vh;
+}
+
+body {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 0fr auto 0fr 0;
+/*
+    grid-template-columns: 1fr;
+    grid-template-areas:
+            "header"
+            "main"
+            "footer"
+            "other";
+*/
+
+}
+
+nav.menu1{
+    /*grid-area: header*/
+}
+.page{
+    background: #FFF;
+    padding:25px 0;
+    /*grid-area: main;*/
+}
+
+footer {
+    background: #DADADA;
+    text-align: center;
+    padding:15px 0;
+    /*grid-area: footer*/
+}
+
+.other {
+    /*grid-area: other;*/
+}
+
+a.navbar-brand > img {
+    max-width: 128px;
+    height: auto;
+}
+
+.importante {
+    font-weight: bold;
+    text-decoration: underline;
+    color: #da0000;
+}
