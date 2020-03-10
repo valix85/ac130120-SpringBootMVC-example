@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="it" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello World</title>
+</head>
+<body>
+<h1 th:text="${item.nome}"></h1>
+
+
+<ul>
+    <li >
+        <span th:text="${item.id}" /> - <b><span th:text="${item.nome}" /></b> (<span th:text="${item.prezzo}"/>&euro;)<br>
+        <span style="font-size: 8pt;" th:text="${item.descrizione}" />
+    </li>
+</ul>
+
+
+<br><br>
+<a th:href="@{/}">VAI A HOME ok</a>
+
+
+</body>
+</html>

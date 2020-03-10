@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello World</title>
+</head>
+<body>
+<h1>Ciao Nextre</h1>
+<h2>http://localhost:8888/index</h2>
+<p th:text="'Hello, ' + ${nickname} + '!'" />
+<p th:text="#{text.saluto}">Lorem ipsum...</p>
+
+
+
+<a th:href="@{/contatti}">VAI A CONTATTI ok</a>
+
+<!--
+<a href="/contatti">VAI ALLA CONTATTI</a>
+<a href="./contatti">VAI ALLA CONTATTI</a>
+<a href="contatti">VAI ALLA CONTATTI</a>
+<a href="../contatti">VAI ALLA CONTATTI</a>
+
+localhost:8888/nexgest
+-->
+
+</body>
+</html>
