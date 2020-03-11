@@ -1,7 +1,9 @@
 package it.nextre.academy.firstexample.controller.api;
 
 import it.nextre.academy.firstexample.model.TipoGuasto;
+import it.nextre.academy.firstexample.model.TipoProdotto;
 import it.nextre.academy.firstexample.service.TipoGuastoService;
+import it.nextre.academy.firstexample.service.TipoProdottoService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -21,9 +23,18 @@ public class TestControllerRest {
     @Autowired
     TipoGuastoService tipoGuastoService;
 
-    @GetMapping("guasti")
-    public List<TipoGuasto> getGuasti(){
-        log.debug("/api/test/guasti");
+    @Autowired
+    TipoProdottoService tipoProdottoService;
+
+    @GetMapping("tipo-guasti")
+    public List<TipoGuasto> getTipoGuasti(){
+        log.debug("/api/test/tipo-guasti");
         return tipoGuastoService.findAll();
+    }
+
+    @GetMapping("tipo-prodotti")
+    public List<TipoProdotto> getTipoProdotti(){
+        log.debug("/api/test/tipo-prodotti");
+        return tipoProdottoService.findAll();
     }
 }//end class
