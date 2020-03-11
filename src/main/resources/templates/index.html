@@ -23,33 +23,39 @@
         </div>
     </div>
 
-    <div class="row mb-2">
+    <div class="row mb-5">
+        <!-- col sx -->
         <div class="col-12 col-md-6 ">
+            <div class="container px-0">
+                <div class="row">
+                    <div class="col-12 col-md-8 offset-md-2  col-lg-6 offset-lg-3">
+                        <form th:action="@{/autentica}" method="post">
+                            <div class="form-group">
+                                <label for="inputUsername1">Username</label>
+                                <input type="email" class="form-control"  value="" placeholder="inserire una mail valida ..." name="user" id="inputUsername1" required />
+                            </div>
 
-            <form th:action="@{/autentica}" method="post">
-                <div class="form-group">
-                    <label for="inputUsername1">Username</label>
-                    <input type="email" class="form-control"  value="" placeholder="inserire una mail valida ..." name="user" id="inputUsername1" required />
+                            <div class="form-group">
+                                <label for="inputPassword1">Password</label>
+                                <input type="password" class="form-control"  value="" placeholder="inserire una password valida ..." name="pwd" id="inputPassword1" required />
+                            </div>
+
+
+                            <div th:if="${param.err != null and param.err[0]=='1'}">
+                                <p class="importante">
+                                    Username / password non validi
+                                </p>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">LOG-IN</button>
+                            <button type="reset" class="btn btn-azure">PULISCI</button>
+                            <!--                <input type="button" value="INIVA" />-->
+                        </form>
+                    </div>
                 </div>
-
-                <div class="form-group">
-                    <label for="inputPassword1">Password</label>
-                    <input type="password" class="form-control"  value="" placeholder="inserire una password valida ..." name="pwd" id="inputPassword1" required />
-                </div>
-
-
-                <div th:if="${param.err != null and param.err[0]=='1'}">
-                <p class="importante">
-                    Username / password non validi
-                </p>
-                </div>
-
-                <button type="submit" class="btn btn-primary">LOG-IN</button>
-                <button type="reset" class="btn btn-azure">PULISCI</button>
-<!--                <input type="button" value="INIVA" />-->
-            </form>
-
+            </div>
         </div>
+        <!-- col dx -->
         <div class="col-12 col-md-6">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab architecto autem cumque explicabo facere hic illum libero maiores mollitia nobis odit omnis optio praesentium provident quaerat quod, repudiandae suscipit? Qui?
         </div>
