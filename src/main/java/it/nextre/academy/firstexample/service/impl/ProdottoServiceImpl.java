@@ -1,7 +1,7 @@
 package it.nextre.academy.firstexample.service.impl;
 
 import it.nextre.academy.firstexample.dto.ProdottoDto;
-import it.nextre.academy.firstexample.model.Prodotto;
+import it.nextre.academy.firstexample.model.ProdottoDemo;
 import it.nextre.academy.firstexample.repository.ProdottoRepositoryFake;
 import it.nextre.academy.firstexample.service.ProdottoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,12 +16,12 @@ public class ProdottoServiceImpl implements ProdottoService {
     ProdottoRepositoryFake prodottoRepository;
 
     @Override
-    public List<Prodotto> getLastProduct(int max) {
+    public List<ProdottoDemo> getLastProduct(int max) {
         return prodottoRepository.getLasts(max);
     }
 
     @Override
-    public ProdottoDto toDto(Prodotto prodotto) {
+    public ProdottoDto toDto(ProdottoDemo prodotto) {
         return new ProdottoDto(
                 prodotto.getId(),
                 prodotto.getNome(),
@@ -31,7 +31,7 @@ public class ProdottoServiceImpl implements ProdottoService {
     }
 
     @Override
-    public Prodotto getOneById(Integer id) {
+    public ProdottoDemo getOneById(Integer id) {
         return prodottoRepository.getById(id);
     }
 }//end class

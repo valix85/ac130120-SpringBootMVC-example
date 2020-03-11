@@ -3,7 +3,7 @@ package it.nextre.academy.firstexample.controller;
 
 import it.nextre.academy.firstexample.customException.ResourceNotFoundException;
 import it.nextre.academy.firstexample.dto.ProdottoDto;
-import it.nextre.academy.firstexample.model.Prodotto;
+import it.nextre.academy.firstexample.model.ProdottoDemo;
 import it.nextre.academy.firstexample.service.ProdottoService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -58,7 +58,7 @@ public class GenericController {
     @GetMapping("prodotti")
     public String getProdotti(Model m){
         log.debug("metodo getProdotti");
-        List<Prodotto> prods = prodottoService.getLastProduct(3);
+        List<ProdottoDemo> prods = prodottoService.getLastProduct(3);
         //convertire i prodotti in una lista di prodottoDto
         m.addAttribute("items",prods.stream().map(prodottoService::toDto).collect(Collectors.toList()));
         return "prodotti.html";
@@ -74,7 +74,7 @@ public class GenericController {
     @GetMapping(path="json/prodotti", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<ProdottoDto>> getProdottiJson(){
         log.debug("metodo getProdottiJson");
-        List<Prodotto> prods = prodottoService.getLastProduct(3);
+        List<ProdottoDemo> prods = prodottoService.getLastProduct(3);
         //convertire i prodotti in una lista di prodottoDto
        List<ProdottoDto> items = prods.stream().map(prodottoService::toDto).collect(Collectors.toList());
         return new ResponseEntity<>(items, HttpStatus.OK);
@@ -87,7 +87,7 @@ public class GenericController {
     @GetMapping("prodotti/{itemId}")
     public String getProdottoById(@PathVariable("itemId") Integer id, Model m){
         log.debug("metodo getProdottoById "+id);
-        Prodotto tmp = prodottoService.getOneById(id);
+        ProdottoDemo tmp = prodottoService.getOneById(id);
         if (tmp.getId()!=null) {
             ProdottoDto res = prodottoService.toDto(tmp);
             m.addAttribute("item", res);
