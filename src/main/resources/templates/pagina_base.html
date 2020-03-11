@@ -2,7 +2,7 @@
 <html lang="it" xmlns:th="http://www.thymeleaf.org">
 <head>
     <div th:replace="parts/header :: headmeta" />
-    <title th:text="${item.nome}"></title>
+    <title>Hello World</title>
     <div th:replace="parts/header :: headcss" />
     <div th:replace="parts/header :: headjs" />
 </head>
@@ -10,14 +10,9 @@
 <div th:replace="parts/navbar :: menu1" />
 
 <div class="container page">
-    <h1 th:text="${item.nome}"></h1>
-    <ul>
-        <li >
-            <span th:text="${item.id}" /> - <b><span th:text="${item.nome}" /></b> (<span th:text="${item.prezzo}"/>&euro;)<br>
-            <span style="font-size: 8pt;" th:text="${item.descrizione}" />
-        </li>
-    </ul>
+
 </div>
+
 
 <div th:replace="parts/footer :: footerhtml" />
 <div class="other">
@@ -26,8 +21,3 @@
 </div>
 </body>
 </html>
-
-
-
-
-

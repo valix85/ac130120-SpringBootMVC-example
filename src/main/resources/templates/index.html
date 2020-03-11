@@ -6,12 +6,73 @@
     <div th:replace="parts/header :: headcss" />
     <div th:replace="parts/header :: headjs" />
 </head>
-<body>
+<body class="homepage">
 <div th:replace="parts/navbar :: menu1" />
 
 <div class="container page">
-<p class="importante">Ciao che bella giornata è oggi</p>
-</div>
+
+    <div class="row">
+        <div class="col-12">
+            <div class="jumbotron">
+                <h1 class="display-4">Hello, world!</h1>
+                <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+                <hr class="my-4">
+                <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+                <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mb-2">
+        <div class="col-12 col-md-6 ">
+
+            <form th:action="@{/autentica}" method="post">
+                <div class="form-group">
+                    <label for="inputUsername1">Username</label>
+                    <input type="email" class="form-control"  value="" placeholder="inserire una mail valida ..." name="user" id="inputUsername1" required />
+                </div>
+
+                <div class="form-group">
+                    <label for="inputPassword1">Password</label>
+                    <input type="password" class="form-control"  value="" placeholder="inserire una password valida ..." name="pwd" id="inputPassword1" required />
+                </div>
+
+
+                <div th:if="${param.err != null and param.err[0]=='1'}">
+                <p class="importante">
+                    Username / password non validi
+                </p>
+                </div>
+
+                <button type="submit" class="btn btn-primary">LOG-IN</button>
+                <button type="reset" class="btn btn-azure">PULISCI</button>
+<!--                <input type="button" value="INIVA" />-->
+            </form>
+
+        </div>
+        <div class="col-12 col-md-6">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab architecto autem cumque explicabo facere hic illum libero maiores mollitia nobis odit omnis optio praesentium provident quaerat quod, repudiandae suscipit? Qui?
+        </div>
+    </div>
+
+
+
+
+
+
+    <div class="row">
+        <div class="col-12 col-md-6 col-lg-3">COL 1</div>
+        <div class="col-12 col-md-6 col-lg-3">COL 2</div>
+        <div class="col-12 col-md-6 col-lg-3">COL 3</div>
+        <div class="col-12 col-md-6 col-lg-3">COL 4</div>
+    </div>
+
+
+
+
+
+
+</div> <!-- end container -->
 
 
 <div th:replace="parts/footer :: footerhtml" />

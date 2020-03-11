@@ -22,8 +22,8 @@ nav.menu1{
     /*grid-area: header*/
 }
 .page{
-    background: #FFF;
-    padding:25px 0;
+    _background: #FFF;
+    padding:25px 15px;
     /*grid-area: main;*/
 }
 
@@ -38,8 +38,9 @@ footer {
     /*grid-area: other;*/
 }
 
+a.navbar-brand {padding: 0;}
 a.navbar-brand > img {
-    max-width: 128px;
+    max-width: 48px;
     height: auto;
 }
 
@@ -47,4 +48,72 @@ a.navbar-brand > img {
     font-weight: bold;
     text-decoration: underline;
     color: #da0000;
+}
+
+
+
+
+
+
+
+
+/*
+
+@media screen and (min-width: 576px) {
+    body {
+        background-color: #FAF99C;
+    }
+
+    body.homepage > .container >.row:first-child {display: none;}
+}
+@media screen and (min-width: 768px) {
+    body {
+        background-color: olive;
+    }
+    body.homepage > .container >.row:first-child {display: block; visibility: hidden;}
+}
+@media screen and (min-width: 992px) {
+    body {
+        background-color: lightpink;
+    }
+    body.homepage > .container >.row:first-child {display: block;}
+}
+@media screen and (min-width: 1200px) {
+    body {
+        background-color: lightseagreen;
+    }
+}
+
+*/
+
+
+
+.btn-azure {
+    background-color: #22a49b;
+    border-color: #22a49b;
+    color:#FFF;
+}
+.btn-azure:hover,
+.btn-azure:focus,
+.btn-azure:active,
+.btn-azure.active {
+    background-color: #1e8f87;
+    border-color: #197a73;
+    color:#FFF;
+}
+.btn-azure.disabled:hover,
+.btn-azure.disabled:focus,
+.btn-azure.disabled:active,
+.btn-azure.disabled.active,
+.btn-azure[disabled]:hover,
+.btn-azure[disabled]:focus,
+.btn-azure[disabled]:active,
+.btn-azure[disabled].active,
+fieldset[disabled] .btn-azure:hover,
+fieldset[disabled] .btn-azure:focus,
+fieldset[disabled] .btn-azure:active,
+fieldset[disabled] .btn-azure.active {
+    background-color: #22a49b;
+    border-color: #22a49b;
+    color:#FFF;
 }
