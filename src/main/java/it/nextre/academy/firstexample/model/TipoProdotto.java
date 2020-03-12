@@ -25,8 +25,8 @@ public class TipoProdotto {
     @Column(length = 45)
     private String nome;
 
-    @JsonIgnore
-    //@JsonBackReference // lasciarlo attivo ma usare un DTO specifico (non avrà questo campo)
+    //@JsonIgnore
+    @JsonBackReference // lasciarlo attivo ma usare un DTO specifico (non avrà questo campo)
     @OneToMany(mappedBy = "tipoProdotto")
     private List<Catalogo> catalogoItems;
 }//end class

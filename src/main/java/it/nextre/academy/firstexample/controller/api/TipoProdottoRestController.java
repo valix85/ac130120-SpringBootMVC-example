@@ -1,5 +1,6 @@
 package it.nextre.academy.firstexample.controller.api;
 
+import it.nextre.academy.firstexample.dto.TipoProdottoDTO;
 import it.nextre.academy.firstexample.model.TipoProdotto;
 import it.nextre.academy.firstexample.service.TipoProdottoService;
 import lombok.extern.slf4j.Slf4j;
@@ -35,10 +36,22 @@ public class TipoProdottoRestController {
 
 
     // todo sistemare eventualmente il RequestBody
+    /*
     @PutMapping("/{id}")
     public TipoProdotto aggiorna(@PathVariable("id") Integer id, @RequestBody TipoProdotto tipoProdotto){
      log.debug("PUT:  /api/tipo-prodotto/"+id);
      return tipoProdottoService.aggiorna(id, tipoProdotto);
+    }
+    */
+
+    // Con DTO
+    @PutMapping("/{id}")
+    public TipoProdotto aggiorna(@PathVariable("id") Integer id, @RequestBody TipoProdottoDTO tipoProdottoDTO){
+        log.debug("PUT:  /api/tipo-prodotto/"+id);
+        TipoProdotto tipoProdotto = new TipoProdotto();
+        tipoProdotto.setId(tipoProdottoDTO.getId());
+        tipoProdotto.setNome(tipoProdottoDTO.getNome());
+        return tipoProdottoService.aggiorna(id, tipoProdotto);
     }
 
     @DeleteMapping("/{id}")
