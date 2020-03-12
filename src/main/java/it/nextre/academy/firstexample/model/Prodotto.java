@@ -13,7 +13,7 @@ public class Prodotto {
     @ManyToOne
     @JoinColumn(name = "id_catalogo")
     @JsonManagedReference
-    private Prodotto idCatalogo;
+    private Catalogo idCatalogo;
     @Column(length = 255)
     private String seriale;
     @Column

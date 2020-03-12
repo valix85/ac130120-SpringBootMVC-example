@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class ProdottoDTO {
     private Integer id;
-    private Prodotto idCatalogo;
+    private Integer idCatalogo;
     private String seriale;
     private String note;
     private Double prezzo;

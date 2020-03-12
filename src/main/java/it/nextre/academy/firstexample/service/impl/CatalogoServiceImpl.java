@@ -1,5 +1,6 @@
 package it.nextre.academy.firstexample.service.impl;
 
+import it.nextre.academy.firstexample.customException.BadDataException;
 import it.nextre.academy.firstexample.model.Catalogo;
 import it.nextre.academy.firstexample.repository.CatalogoRepository;
 import it.nextre.academy.firstexample.service.CatalogoService;
@@ -17,5 +18,10 @@ public class CatalogoServiceImpl implements CatalogoService {
     @Override
     public List<Catalogo> findAll() {
         return catalogoRepository.findAll();
+    }
+
+    @Override
+    public Catalogo findById(Integer idCatalogo) {
+        return catalogoRepository.findById(idCatalogo).orElseThrow(BadDataException::new);
     }
 }//end class

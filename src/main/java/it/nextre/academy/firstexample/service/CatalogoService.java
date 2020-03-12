@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface CatalogoService {
     List<Catalogo> findAll();
+
+    Catalogo findById(Integer idCatalogo);
 }//end class

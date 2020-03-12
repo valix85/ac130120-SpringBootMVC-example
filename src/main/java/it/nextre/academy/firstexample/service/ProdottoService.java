@@ -8,4 +8,7 @@ public interface ProdottoService {
     Prodotto inserisci(String nomeProdotto);
     Prodotto aggiorna(Integer id, Prodotto prodotto);
     void cancella(Integer id);
+
+
+    Prodotto findOneById(Integer id);
 }

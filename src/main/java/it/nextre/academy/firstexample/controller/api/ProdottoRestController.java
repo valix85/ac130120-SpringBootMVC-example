@@ -1,6 +1,8 @@
 package it.nextre.academy.firstexample.controller.api;
 import it.nextre.academy.firstexample.dto.ProdottoDTO;
+import it.nextre.academy.firstexample.model.Catalogo;
 import it.nextre.academy.firstexample.model.Prodotto;
+import it.nextre.academy.firstexample.service.CatalogoService;
 import it.nextre.academy.firstexample.service.ProdottoService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,10 +15,19 @@ import java.util.Map;
 public class ProdottoRestController {
     @Autowired
     ProdottoService prodottoService;
+
+    @Autowired
+    CatalogoService catalogoService;
+
     @GetMapping("/")
     public List<Prodotto> getProdotti(){
         log.debug("GET: /api/prodotto/");
         return prodottoService.findAll();
+    }
+    @GetMapping("/{id}")
+    public Prodotto getProdottoById(@PathVariable("id") Integer id){
+        log.debug("GET: /api/prodotto/"+id);
+        return prodottoService.findOneById(id);
     }
     //todo sistemare eventualmente il RequestBody
     @PostMapping("/")
@@ -27,11 +38,14 @@ public class ProdottoRestController {
     }
     //con DTO
     @PutMapping("/{id}")
-    public Prodotto aggiorna (@PathVariable("id") Integer id, @RequestBody ProdottoDTO prodottoDTO){
+    public Prodotto aggiorna(@PathVariable("id") Integer id, @RequestBody ProdottoDTO prodottoDTO){
         log.debug("PUT: /api/prodotto/" + id);
         Prodotto prodotto = new Prodotto();
         prodotto.setId(prodottoDTO.getId());
-        prodotto.setIdCatalogo(prodottoDTO.getIdCatalogo());
+        if (prodottoDTO.getIdCatalogo()!=null){
+            Catalogo cat = catalogoService.findById(prodottoDTO.getIdCatalogo());
+            prodotto.setIdCatalogo(cat);
+        }
         prodotto.setSeriale(prodottoDTO.getSeriale());
         prodotto.setNote(prodottoDTO.getNote());
         prodotto.setPrezzo(prodottoDTO.getPrezzo());
