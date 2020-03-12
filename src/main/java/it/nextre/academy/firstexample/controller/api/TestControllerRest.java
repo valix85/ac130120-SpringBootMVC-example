@@ -1,7 +1,9 @@
 package it.nextre.academy.firstexample.controller.api;
 
+import it.nextre.academy.firstexample.model.Catalogo;
 import it.nextre.academy.firstexample.model.TipoGuasto;
 import it.nextre.academy.firstexample.model.TipoProdotto;
+import it.nextre.academy.firstexample.service.CatalogoService;
 import it.nextre.academy.firstexample.service.TipoGuastoService;
 import it.nextre.academy.firstexample.service.TipoProdottoService;
 import lombok.extern.slf4j.Slf4j;
@@ -24,7 +26,7 @@ public class TestControllerRest {
     TipoGuastoService tipoGuastoService;
 
     @Autowired
-    TipoProdottoService tipoProdottoService;
+    CatalogoService catalogoService;
 
     @GetMapping("tipo-guasti")
     public List<TipoGuasto> getTipoGuasti(){
@@ -32,9 +34,10 @@ public class TestControllerRest {
         return tipoGuastoService.findAll();
     }
 
-    @GetMapping("tipo-prodotti")
-    public List<TipoProdotto> getTipoProdotti(){
-        log.debug("/api/test/tipo-prodotti");
-        return tipoProdottoService.findAll();
+    @GetMapping("catalogo")
+    public List<Catalogo> getCatalogo(){
+        log.debug("/api/test/catalogo");
+        return catalogoService.findAll();
     }
+
 }//end class

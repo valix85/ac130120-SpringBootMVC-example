@@ -6,4 +6,9 @@ import java.util.List;
 
 public interface TipoProdottoService {
     List<TipoProdotto> findAll();
+    TipoProdotto inserisci(String nomeProdotto);
+
+    TipoProdotto aggiorna(Integer id, TipoProdotto tipoProdotto);
+
+    void cancella(Integer id);
 }

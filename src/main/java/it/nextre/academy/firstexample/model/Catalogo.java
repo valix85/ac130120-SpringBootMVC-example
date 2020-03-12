@@ -1,6 +1,7 @@
 package it.nextre.academy.firstexample.model;
 
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -27,6 +28,7 @@ public class Catalogo {
 
     @ManyToOne
     @JoinColumn(name="tipo")
+    @JsonManagedReference
     private TipoProdotto tipoProdotto;
 
 
