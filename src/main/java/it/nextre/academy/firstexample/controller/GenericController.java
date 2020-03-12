@@ -2,9 +2,9 @@ package it.nextre.academy.firstexample.controller;
 
 
 import it.nextre.academy.firstexample.customException.ResourceNotFoundException;
-import it.nextre.academy.firstexample.dto.ProdottoDto;
+import it.nextre.academy.firstexample.dto.ProdottoDemoDto;
 import it.nextre.academy.firstexample.model.ProdottoDemo;
-import it.nextre.academy.firstexample.service.ProdottoService;
+import it.nextre.academy.firstexample.service.ProdottoDemoService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -26,7 +26,7 @@ import java.util.stream.Collectors;
 public class GenericController {
 
     @Autowired
-    ProdottoService prodottoService;
+    ProdottoDemoService prodottoService;
 
 
 
@@ -72,11 +72,11 @@ public class GenericController {
 
 
     @GetMapping(path="json/prodotti", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<ProdottoDto>> getProdottiJson(){
+    public ResponseEntity<List<ProdottoDemoDto>> getProdottiJson(){
         log.debug("metodo getProdottiJson");
         List<ProdottoDemo> prods = prodottoService.getLastProduct(3);
         //convertire i prodotti in una lista di prodottoDto
-       List<ProdottoDto> items = prods.stream().map(prodottoService::toDto).collect(Collectors.toList());
+       List<ProdottoDemoDto> items = prods.stream().map(prodottoService::toDto).collect(Collectors.toList());
         return new ResponseEntity<>(items, HttpStatus.OK);
     }
 
@@ -89,7 +89,7 @@ public class GenericController {
         log.debug("metodo getProdottoById "+id);
         ProdottoDemo tmp = prodottoService.getOneById(id);
         if (tmp.getId()!=null) {
-            ProdottoDto res = prodottoService.toDto(tmp);
+            ProdottoDemoDto res = prodottoService.toDto(tmp);
             m.addAttribute("item", res);
             return "prodotto.html";
         }

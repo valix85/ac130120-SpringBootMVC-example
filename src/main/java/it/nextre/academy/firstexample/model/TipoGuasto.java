@@ -14,7 +14,7 @@ public class TipoGuasto {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(length = 45)
+    @Column(length = 255)
     private String tipo;
 
     @Override
