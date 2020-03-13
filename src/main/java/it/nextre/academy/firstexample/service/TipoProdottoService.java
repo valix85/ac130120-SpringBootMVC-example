@@ -11,4 +11,6 @@ public interface TipoProdottoService {
     TipoProdotto aggiorna(Integer id, TipoProdotto tipoProdotto);
 
     void cancella(Integer id);
+
+    TipoProdotto findOneById(Integer id);
 }
