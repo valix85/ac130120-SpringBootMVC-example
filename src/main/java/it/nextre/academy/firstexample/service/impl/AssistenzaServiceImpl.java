@@ -1,17 +1,15 @@
 package it.nextre.academy.firstexample.service.impl;
+
 import it.nextre.academy.firstexample.customException.BadDataException;
 import it.nextre.academy.firstexample.customException.ResourceNotFoundException;
 import it.nextre.academy.firstexample.dto.AssistenzaDTO;
 import it.nextre.academy.firstexample.model.Assistenza;
-import it.nextre.academy.firstexample.model.Catalogo;
-import it.nextre.academy.firstexample.model.TipoGuasto;
 import it.nextre.academy.firstexample.repository.AssistenzaRepository;
 import it.nextre.academy.firstexample.service.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import java.net.http.HttpRequest;
-import java.time.LocalDateTime;
+
 import java.util.List;
 @Service
 @Slf4j
@@ -64,8 +62,11 @@ public class AssistenzaServiceImpl implements AssistenzaService {
 
     @Override
     public Assistenza update(Integer id, Assistenza assistenza) {
-        // todo fare metodo
-        return null;
+        if(!assistenzaRepository.findById(id).isPresent())
+            throw new BadDataException("Id assistenza non presente");
+        if(id !=null && assistenza !=null && id.equals(assistenza.getId()))
+            return assistenzaRepository.save(assistenza);
+        throw new BadDataException("Dati assistenza non validi");
     }
 
     @Override
