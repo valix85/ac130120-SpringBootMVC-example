@@ -5,6 +5,8 @@ import it.nextre.academy.firstexample.model.TipoContratto;
 import java.util.List;
 
 public interface TipoContrattoService {
+
+    TipoContratto findOneById(int id);
     List<TipoContratto> findAll();
 
     TipoContratto insert(String nome);

@@ -2,6 +2,7 @@ package it.nextre.academy.firstexample.service.impl;
 
 
 import it.nextre.academy.firstexample.customException.BadDataException;
+import it.nextre.academy.firstexample.customException.ResourceNotFoundException;
 import it.nextre.academy.firstexample.model.TipoContratto;
 import it.nextre.academy.firstexample.model.TipoGuasto;
 import it.nextre.academy.firstexample.model.TipoProdotto;
@@ -55,4 +56,9 @@ public class TipoContrattoServiceImpl implements TipoContrattoService {
         ;
         throw new BadDataException("Id Prodotto non valido");
     }
-}
+
+    @Override
+    public TipoContratto findOneById(int id) {
+        return tipoContrattoRepository.findById(id).orElseThrow(ResourceNotFoundException::new);
+    }
+}//end class

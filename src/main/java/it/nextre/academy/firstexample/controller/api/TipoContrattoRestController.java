@@ -12,18 +12,18 @@ import java.util.Map;
 
 @RestController
 @Slf4j
-@RequestMapping("/api/tipo-contratto/")
+@RequestMapping("/api/tipo-contratto")
 public class TipoContrattoRestController {
     @Autowired
     TipoContrattoService tipoContrattoService;
 
-    @GetMapping
+    @GetMapping("/")
     public List<TipoContratto> getTipoContratto() {
         log.debug("GET:     /api/tipo-contratto/");
         return tipoContrattoService.findAll();
     }
 
-    @PostMapping
+    @PostMapping("/")
     public TipoContratto addTipoProdotto(@RequestBody Map<String, Object> dati) {
         log.debug("POST:    /api/tipo-contratto/");
         log.info("Dati ricevuti: " + dati);

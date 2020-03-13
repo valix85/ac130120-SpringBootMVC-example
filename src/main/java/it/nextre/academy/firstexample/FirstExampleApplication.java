@@ -10,4 +10,6 @@ public class FirstExampleApplication {
 		SpringApplication.run(FirstExampleApplication.class, args);
 	}
 
+	// todo aggiungere log su hdd (rolling file appender)
+
 }

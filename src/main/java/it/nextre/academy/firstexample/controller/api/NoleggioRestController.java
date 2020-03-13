@@ -1,4 +1,5 @@
 package it.nextre.academy.firstexample.controller.api;
+import it.nextre.academy.firstexample.dto.NoleggioDTO;
 import it.nextre.academy.firstexample.model.Noleggio;
 import it.nextre.academy.firstexample.service.NoleggioService;
 import lombok.extern.slf4j.Slf4j;
@@ -33,5 +34,14 @@ public class NoleggioRestController {
         log.debug("DELETE: /api/tipo-prodotto"+id);
         noleggioService.rimuovi(id);
         return true;
+    }
+
+    @PutMapping("/{id}")
+    public Noleggio aggiorna(@PathVariable("id") Integer id, @RequestBody NoleggioDTO noleggioDTO){
+        log.debug("PUT: /api/noleggio/"+id);
+        Noleggio noleggio= new Noleggio();
+        noleggio.setDataFine(noleggioDTO.getDataFine());
+        noleggio.setCostoGiorno(noleggioDTO.getCostoGiorno());
+        return noleggioService.aggiorna(id, noleggio);
     }
 }//end class
