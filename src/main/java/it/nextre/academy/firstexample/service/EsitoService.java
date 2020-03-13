@@ -8,4 +8,5 @@ public interface EsitoService
     Esito addNew(String tipoesito);
     Esito update(Integer id, Esito esito);
     Boolean delete(Integer id);
+    Esito findOneById(Integer id);
 }

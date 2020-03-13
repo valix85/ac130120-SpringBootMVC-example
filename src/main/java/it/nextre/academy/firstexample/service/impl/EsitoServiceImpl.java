@@ -1,5 +1,6 @@
 package it.nextre.academy.firstexample.service.impl;
 import it.nextre.academy.firstexample.customException.BadDataException;
+import it.nextre.academy.firstexample.customException.ResourceNotFoundException;
 import it.nextre.academy.firstexample.model.Esito;
 import it.nextre.academy.firstexample.model.TipoProdotto;
 import it.nextre.academy.firstexample.repository.EsitoRepository;
@@ -54,5 +55,10 @@ public class EsitoServiceImpl implements EsitoService
             }
         }
         throw new BadDataException("Dati non validi o esito non trovato");
+    }
+
+    @Override
+    public Esito findOneById(Integer id) {
+        return esitoRepository.findById(id).orElseThrow(ResourceNotFoundException::new);
     }
 }//end class

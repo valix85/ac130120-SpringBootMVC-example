@@ -7,4 +7,6 @@ public interface TipoGuastoService {
     TipoGuasto insert(String tipo);
     void delete(Integer id);
     TipoGuasto update(Integer id, TipoGuasto tipoGuasto);
+
+    TipoGuasto findOneById(int id);
 }
